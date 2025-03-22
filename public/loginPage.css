@@ -1,0 +1,174 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+    background-image: url(Login\ Page.png);
+    background-size: cover;
+    background-position: center; /* Posisi tengah */
+    background-repeat: no-repeat;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center ;
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: transparent;
+    position: relative;
+  }
+  
+  .form-section {
+    width: 50%;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    color: white;
+    border-radius: 50px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    height: 290px;
+    position: relative;
+    right: 90px; /* Pindahkan ke kanan */
+    z-index: 0;
+    margin-top: 50px;
+    filter: drop-shadow(0px 20px 30px rgba(0, 0, 0, 0.5));
+  }
+  
+  .image-section {
+    width: 30%;
+    padding: 30px;
+    background-color: white;
+    border-radius: 30px;
+    text-align: center;
+    height: 320px;
+    position: relative;
+    z-index: 1;
+    left: 130px; /* Pindahkan ke kiri */
+    overflow: visible;
+    margin-top: 50px;
+    filter: drop-shadow(0px 20px 30px rgba(0, 0, 0, 0.5));
+  }
+  
+  .form-section h1 {
+    font-size: 30px;
+    margin-bottom: 8px;
+    margin-left: 100px; /* Dorong input ke kanan */
+    margin-right: auto; /* Jarak dari tepi kanan */
+    text-align: center; /* Rata kanan */
+  }
+  
+  .form-section p {
+    font-size: 10px;
+    margin-left: 100px; /* Dorong input ke kanan */
+    margin-right: auto; /* Jarak dari tepi kanan */
+    text-align: center; /* Rata kanan */
+    color: black;
+    font-weight: 500;
+    display: block;
+  }
+  
+  .form-section input {
+    width: 50%;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #000000;
+    margin-left: auto; /* Dorong input ke kanan */
+    margin-right: 60px; /* Jarak dari tepi kanan */
+    font-size: 8px;
+    background-color: transparent;
+    color: white;
+    border-radius: 0;
+    display: block; /* Pastikan input adalah block element */
+  }
+  
+  .form-section input:focus {
+    border-bottom: 2px solid white;
+    outline: none;
+  }
+  
+  .form-section button {
+    width: 53%;
+    padding: 10px;
+    border: none;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: block;
+    margin-top: 20px;
+    margin-left: auto; /* Dorong input ke kanan */
+    margin-right: 60px; /* Jarak dari tepi kanan */
+  }
+  
+  .form-section button:hover {
+    background-color: #fcd34d;
+  }
+  
+  .login-prompt {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 0.9rem;
+  }
+  
+  .link-container {
+    font-size: 9px;
+    display: flex;
+    margin-top: 10px;
+    margin-right: -120px;
+    justify-content: center; /* Pusatkan jika perlu */
+    gap: 100px; /* Kurangi jarak antar elemen */
+  }
+  
+  .New-Account a,
+  .Forget-Password a {
+    color: black;
+    text-decoration: underline;
+  }
+  
+  .image-section img {
+    width: 300px;
+    height: auto;
+    position: absolute;
+    bottom: 150px;
+    left: 7%;
+    z-index: 2;
+  }
+  
+  .image-section::after {
+    content: "";
+    position: absolute;
+    bottom: 160px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 250px;
+    height: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 90%;
+    filter: blur(10px);
+    z-index: 1;
+  }
+  
+  .image-section h1 {
+    font-size: 35px;
+    font-weight: 900;
+    margin-top: 210px;
+    color: #333;
+  }
+  
+  .highlight {
+    color: #f8bd00;
+  }
+  .dot {
+    color: blue;
+  }
+  
+  .image-section p {
+    color: #555;
+    margin-top: -10px;
+    font-size: 1rem;
+  }
+  
