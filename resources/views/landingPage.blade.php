@@ -25,7 +25,7 @@
             <a href="#kalender">Kalender</a>
             <a href="#banner">Buka di Browser</a>
         </nav>
-        <button class="btn">Login</button>     
+        <button class="btn"><a href="{{ url('/loginpage') }}">Login</a></button>     
     </header>
 
     <!-- HOME PAGE -->
