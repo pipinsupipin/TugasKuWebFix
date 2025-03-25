@@ -28,7 +28,7 @@
         <form action="#" method="post">
           <input type="email" placeholder="Email" required />
           <input type="password" placeholder="Kata Sandi" required />
-          <button type="submit" class="btn">Daftar</button>
+          <button type="submit" class="btn"><a href="{{ url('/homepage') }}">Login</a></button>
         </form>
         <div class="link-container">
           <div class="New-Account"><a href="{{ url('/registerpage') }}">Buat Akun Baru</a></div>

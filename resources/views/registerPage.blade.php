@@ -22,7 +22,7 @@
 
           <input type="email" placeholder="Email" required />
           <input type="password" placeholder="Kata Sandi" required />
-          <button type="submit" class="btn">Daftar</button>
+          <button type="submit" class="btn"><a href="{{ url('/homepage') }}">Daftar</a></button>
         </form>
         <p class="login-prompt">
           Sudah punya akun? <a href="{{url('/loginpage')}}">Masuk Disini</a>
