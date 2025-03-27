@@ -14,22 +14,22 @@
             <h2 class="logo">Tugas<span class="dot">•</span><span class="ku">Ku</span></h2>
             <div class="menu">
                 <h3>Menu</h3>
-                <a href="#" class="menu-item active">
+                <a href="#" class="menu-item active" id="dashboard-btn">
                     <span class="icon">🏠</span> Dashboard
                 </a>
-                <a href="#" class="menu-item">
+                <a href="#" class="menu-item" id="calendar-btn">
                     <span class="icon">📅</span> Calendar View
                 </a>
-                <a href="#" class="menu-item">
+                <a href="#" class="menu-item" id="list-btn">
                     <span class="icon">📋</span> Semua Tugas
                 </a>
             </div>
             <div class="general">
                 <h3>General</h3>
-                <a href="#" class="menu-item">
+                <a href="#" class="menu-item" id="settings-btn">
                     <span class="icon">⚙️</span> Pengaturan
                 </a>
-                <a href="#" class="menu-item">
+                <a href="#" class="menu-item" id="about-btn">
                     <span class="icon">❓</span> Tentang Kami
                 </a>
                 <a href="#" class="menu-item">
@@ -42,7 +42,7 @@
             </div>
         </div>
 
-        <div class="main-container">
+        <div class="main-container" id="dashboard-view">
 
             <div class="search-bar">
                 <div class="search-form">
@@ -240,6 +240,22 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="calendar" id="calendar-view" style="display: none;">
+            <h1>Calendar View</h1>
+        </div>
+
+        <div class="list-view" id="list-view" style="display: none;">
+            <h1>Semua Tugas</h1>
+        </div>
+
+        <div class="settings-view" id="settings-view" style="display: none;">
+            <h1>Pengaturan</h1>
+        </div>
+
+        <div class="about-view" id="about-view" style="display: none;">
+            <h1>Tentang Kami</h1>
         </div>
     </div>
 
