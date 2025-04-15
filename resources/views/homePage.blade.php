@@ -15,27 +15,54 @@
             <div class="menu">
                 <h3>Menu</h3>
                 <a href="#" class="menu-item active" id="dashboard-btn">
-                    <span class="icon">🏠</span> Dashboard
+                    <span class="icon-with-text">
+                        <i data-lucide="layout-dashboard" class="icon"></i>
+                        <span class="label">Dashboard</span>
+                    </span>
                 </a>
-                <a href="#" class="menu-item" id="calendar-btn">
-                    <span class="icon">📅</span> Calendar View
+                <a href="/calendarpage" class="menu-item" id="calendar-btn">
+                    <span class="icon-with-text">
+                        <i data-lucide="calendar" class="icon"></i>
+                        <span class="label">Calendar View</span>
+                    </span>
                 </a>
-                <a href="#" class="menu-item" id="list-btn">
-                    <span class="icon">📋</span> Semua Tugas
+
+                <a href="/kategori" class="menu-item" id="kategori-btn">
+                    <span class="icon-with-text">
+                        <i data-lucide="archive" class="icon"></i>
+                        <span class="label">Semua Kategori</span>
+                    </span>
+                </a>
+                <a href="/tugas" class="menu-item" id="tugas-btn">
+                    <span class="icon-with-text">
+                        <i data-lucide="logs" class="icon"></i>
+                        <span class="label">Semua Tugas</span>
+                    </span>
                 </a>
             </div>
+
             <div class="general">
                 <h3>General</h3>
-                <a href="#" class="menu-item" id="settings-btn">
-                    <span class="icon">⚙️</span> Pengaturan
+                <a href="/settingspage" class="menu-item" id="settings-btn">
+                    <span class="icon-with-text">
+                        <i data-lucide="settings" class="icon"></i>
+                        <span class="label">Pengaturan</span>
+                    </span>
                 </a>
-                <a href="#" class="menu-item" id="about-btn">
-                    <span class="icon">❓</span> Tentang Kami
+                <a href="aboutuspage" class="menu-item" id="about-btn">
+                    <span class="icon-with-text">
+                        <i data-lucide="circle-help" class="icon"></i>
+                        <span class="label">Tentang Kami</span>
+                    </span>
                 </a>
-                <a href="#" class="menu-item">
-                    <span class="icon">🔄</span> Keluar
+                <a href="/" class="menu-item" id="logout-btn">
+                    <span class="icon-with-text">
+                        <i data-lucide="log-out" class="icon"></i>
+                        <span class="label">Keluar</span>
+                    </span>
                 </a>
             </div>
+
             <div class="download-card">
                 <p><strong>Download TugasKu di Smartphone</strong><br>Mencatat tugas lebih mudah</p>
                 <button>Download</button>
@@ -76,8 +103,8 @@
                             </div>
                             <div class="task-time">
                                 <h2>Waktu</h2>
-                                <input type="time" id="jam1" name="jam">
-                                <input type="time" id="jam2" name="jam">
+                                <input type="datetime-local" id="jam1" name="jam">
+                                <input type="datetime-local" id="jam2" name="jam">
                             </div>
                             <div class="category">
                                 <h2>Kategori</h2>
@@ -103,49 +130,63 @@
                         <h2>Kategori Tugas</h2>
                         <div class="category-box">
                             <div class="box">
-                                <img src="img/memoji-kategori.png" alt="">
+                                <div class="icon-box">
+                                    <i data-lucide="user" class="icon"></i>
+                                </div>
                                 <h2>Rapat</h2>
                                 <p>18 Februari 2025</p>
                                 <div class="bar"></div>
                                 <p><span class="detail-tugas">1/2 Selesai</span></p>
                             </div>
                             <div class="box">
-                                <img src="img/memoji-kategori.png" alt="">
+                                <div class="icon-box">
+                                    <i data-lucide="wrench" class="icon"></i>
+                                </div>
                                 <h2>Proyek</h2>
                                 <p>18 Februari 2025</p>
                                 <div class="bar"></div>
                                 <p><span class="detail-tugas">1/2 Selesai</span></p>
                             </div>
                             <div class="box">
-                                <img src="img/memoji-kategori.png" alt="">
+                                <div class="icon-box">
+                                    <i data-lucide="notepad-text" class="icon"></i>
+                                </div>
                                 <h2>Quiz</h2>
                                 <p>18 Februari 2025</p>
                                 <div class="bar"></div>
                                 <p><span class="detail-tugas">1/2 Selesai</span></p>
                             </div>
                             <div class="box">
-                                <img src="img/memoji-kategori.png" alt="">
+                                <div class="icon-box">
+                                    <i data-lucide="school" class="icon"></i>
+                                </div>
                                 <h2>Ujian</h2>
                                 <p>18 Februari 2025</p>
                                 <div class="bar"></div>
                                 <p><span class="detail-tugas">1/2 Selesai</span></p>
                             </div>
                             <div class="box">
-                                <img src="img/memoji-kategori.png" alt="">
+                                <div class="icon-box">
+                                    <i data-lucide="flask-conical" class="icon"></i>
+                                </div>
                                 <h2>Penelitian</h2>
                                 <p>18 Februari 2025</p>
                                 <div class="bar"></div>
                                 <p><span class="detail-tugas">1/2 Selesai</span></p>
                             </div>
                             <div class="box">
-                                <img src="img/memoji-kategori.png" alt="">
+                                <div class="icon-box">
+                                    <i data-lucide="users-round" class="icon"></i>
+                                </div>
                                 <h2>Bimbingan</h2>
                                 <p>18 Februari 2025</p>
                                 <div class="bar"></div>
                                 <p><span class="detail-tugas">1/2 Selesai</span></p>
                             </div>
                             <div class="box">
-                                <img src="img/memoji-kategori.png" alt="">
+                                <div class="icon-box">
+                                    <i data-lucide="presentation" class="icon"></i>
+                                </div>
                                 <h2>Briefing</h2>
                                 <p>18 Februari 2025</p>
                                 <div class="bar"></div>
@@ -167,70 +208,79 @@
                     <h1>Sisa Tugas</h1>
                     <div class="list-tugas">
                         <div class="box-list">
-                            <img src="img/memoji-kategori.png" alt="">
+                            <i data-lucide="square" class="icon"></i>
                             <div class="box-list2">
                                 <h3>Pembuatan Aplikasi Mobile</h3>
                                 <p>07.00 - 08.00</p>
                             </div>
                         </div>
-                        <div class="box-list">
-                            <img src="img/memoji-kategori.png" alt="">
+                        <div class="box-list"><i data-lucide="square" class="icon"></i>
                             <div class="box-list2">
                                 <h3>Meeting Tim Proyek</h3>
                                 <p>09.00 - 10.30</p>
                             </div>
                         </div>
-                        <div class="box-list">
-                            <img src="img/memoji-kategori.png" alt="">
+                        <div class="box-list"><i data-lucide="square" class="icon"></i>
                             <div class="box-list2">
                                 <h3>Review Code Backend</h3>
                                 <p>11.00 - 12.00</p>
                             </div>
                         </div>
-                        <div class="box-list">
-                            <img src="img/memoji-kategori.png" alt="">
+                        <div class="box-list"><i data-lucide="square" class="icon"></i>
                             <div class="box-list2">
                                 <h3>Diskusi UI/UX</h3>
                                 <p>13.30 - 14.30</p>
                             </div>
                         </div>
-                        <div class="box-list">
-                            <img src="img/memoji-kategori.png" alt="">
+                        <div class="box-list"><i data-lucide="square" class="icon"></i>
                             <div class="box-list2">
                                 <h3>Presentasi Proyek</h3>
                                 <p>15.00 - 16.00</p>
                             </div>
                         </div>
-                        <div class="box-list">
-                            <img src="img/memoji-kategori.png" alt="">
+                        <div class="box-list"><i data-lucide="square" class="icon"></i>
                             <div class="box-list2">
                                 <h3>Latihan Algoritma</h3>
                                 <p>16.30 - 17.30</p>
                             </div>
                         </div>
-                        <div class="box-list">
-                            <img src="img/memoji-kategori.png" alt="">
+                        <div class="box-list"><i data-lucide="square" class="icon"></i>
                             <div class="box-list2">
                                 <h3>Pengerjaan Laporan</h3>
                                 <p>18.00 - 19.30</p>
                             </div>
                         </div>
-                        <div class="box-list">
-                            <img src="img/memoji-kategori.png" alt="">
+                        <div class="box-list"><i data-lucide="square" class="icon"></i>
                             <div class="box-list2">
                                 <h3>Mengerjakan Tugas Kuliah</h3>
                                 <p>20.00 - 21.30</p>
                             </div>
                         </div>
-                        <div class="box-list">
-                            <img src="img/memoji-kategori.png" alt="">
+                        <div class="box-list"><i data-lucide="square" class="icon"></i>
                             <div class="box-list2">
                                 <h3>Belajar Flutter</h3>
                                 <p>22.00 - 23.00</p>
                             </div>
                         </div>
-                        <div class="box-list">
-                            <img src="img/memoji-kategori.png" alt="">
+                        <div class="box-list"><i data-lucide="square" class="icon"></i>
+                            <div class="box-list2">
+                                <h3>Brainstorming Ide Startup</h3>
+                                <p>23.30 - 00.30</p>
+                            </div>
+                        </div>
+                        <div class="box-list"><i data-lucide="square" class="icon"></i>
+                            <div class="box-list2">
+                                <h3>Brainstorming Ide Startup</h3>
+                                <p>23.30 - 00.30</p>
+                            </div>
+                        </div>
+                        <div class="box-list"><i data-lucide="square" class="icon"></i>
+                            <div class="box-list2">
+                                <h3>Brainstorming Ide Startup</h3>
+                                <p>23.30 - 00.30</p>
+                            </div>
+                        </div>
+                        <div class="box-list"><i data-lucide="square" class="icon"></i>
                             <div class="box-list2">
                                 <h3>Brainstorming Ide Startup</h3>
                                 <p>23.30 - 00.30</p>
@@ -242,23 +292,12 @@
             </div>
         </div>
 
-        <div class="calendar" id="calendar-view" style="display: none;">
-            <h1>Calendar View</h1>
-        </div>
 
-        <div class="list-view" id="list-view" style="display: none;">
-            <h1>Semua Tugas</h1>
-        </div>
-
-        <div class="settings-view" id="settings-view" style="display: none;">
-            <h1>Pengaturan</h1>
-        </div>
-
-        <div class="about-view" id="about-view" style="display: none;">
-            <h1>Tentang Kami</h1>
-        </div>
     </div>
-
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+    </script>
     <script src="script.js"></script>
 </body>
 
