@@ -28,7 +28,6 @@
             <a href="#kalender">Kalender</a>
             <a href="/feedback">Kritik Saran</a>
             <a href="/about">Tentang Kami</a>
-            <a href="#banner">Buka di Browser</a>
         </nav>
         <button class="btn"><a href="{{ url('/loginpage') }}">Login</a></button>
     </header>

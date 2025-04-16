@@ -67,9 +67,9 @@ Route::post('/register-check', function (Request $request) {
     // Simulasi validasi
     if ($email === 'admin@example.com') {
         // Simulasi kalau email admin
-        return redirect('/admindashboard');
+        return redirect('/loginpage');
     } else {
         // Simulasi user biasa
-        return redirect('/homepage');
+        return redirect('/loginpage');
     }
 });
