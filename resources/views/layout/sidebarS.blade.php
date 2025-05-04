@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage TugasKu</title>
-    <link rel="stylesheet" href="{{ asset('settings.css') }}">
+    <link rel="stylesheet" href="{{ asset('mainPage/settings.css') }}">
 
 </head>
 

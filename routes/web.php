@@ -1,45 +1,45 @@
 <?php
 
-use App\Http\Controllers\KategoriController;
-use App\Http\Controllers\TugasController;
+use App\Http\Controllers\Api\KategoriTugasController;
+use App\Http\Controllers\Api\TugasController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('landingPage');
+    return view('landingPage.landingPage');
 });
 
 Route::get('/loginpage', function () {
-    return view('loginPage');
+    return view('auth.loginPage');
 });
 
 Route::get('/registerpage', function () {
-    return view('registerPage');
+    return view('auth.registerPage');
 });
 
 Route::get('/homepage', function () {
-    return view('homePage');
+    return view('mainPage.homePage');
 });
 Route::get('/calendarpage', function () {
-    return view('calendarPage');
+    return view('mainPage.calendarPage');
 });
 Route::get('/settingspage', function () {
-    return view('settings');
+    return view('mainPage.settings');
 });
 Route::get('/aboutuspage', function () {
-    return view('aboutUsPage');
+    return view('mainPage.aboutUsPage');
 });
 Route::get('/about', function () {
-    return view('aboutPage');
+    return view('landingPage.aboutPage');
 });
 Route::get('/feedback', function () {
-    return view('feedbackPage');
+    return view('landingPage.feedbackPage');
 });
 
 Route::get('/admindashboard', function () {
-    return view('adminDashboard');
+    return view('mainPage.adminDashboard');
 });
 
-Route::resource('kategori', KategoriController::class);
+Route::resource('kategori', KategoriTugasController::class);
 Route::resource('tugas', TugasController::class)->parameters([
     'tugas' => 'tugas'
 ]);
