@@ -11,10 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('kategoris', function (Blueprint $table) {
+        Schema::create('streaks', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_kategori',255);
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->date('date');
+            $table->integer('completed_tasks_count')->default(0);
             $table->timestamps();
+    
+            // Mastiin satu streak/hari
+            $table->unique(['user_id', 'date']);
         });
     }
 
@@ -23,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('kategori');
+        Schema::dropIfExists('streaks');
     }
 };

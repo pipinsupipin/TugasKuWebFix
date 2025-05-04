@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\kategori;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,12 +13,14 @@ return new class extends Migration
     {
         Schema::create('tugas', function (Blueprint $table) {
             $table->id();
-            $table->string('judul_tugas',255);
-            $table->datetime('waktu_mulai')->nullable();
-            $table->datetime('waktu_selesai')->nullable();
-            $table->string('catatan',255)->nullable();
-            $table->boolean('status_tugas')->default(false);
-            $table->foreignId('id_kategori')->constrained('kategoris')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('kategori_id')->nullable()->constrained('kategori_tugas')->nullOnDelete();
+            $table->string('judul');
+            $table->text('deskripsi')->nullable();
+            $table->dateTime('waktu_mulai')->nullable();
+            $table->dateTime('waktu_selesai')->nullable();
+            $table->boolean('is_completed')->default(false);
+            $table->dateTime('completed_at')->nullable();
             $table->timestamps();
         });
     }

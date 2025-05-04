@@ -3,20 +3,37 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class tugas extends Model
+class Tugas extends Model
 {
-    //
-    protected $guarded =[];
+    use HasFactory;
+
+    protected $fillable = [
+        'user_id',
+        'kategori_id',
+        'judul',
+        'deskripsi',
+        'waktu_mulai',
+        'waktu_selesai',
+        'is_completed',
+        'completed_at',
+    ];
+
+    protected $casts = [
+        'waktu_mulai' => 'datetime',
+        'waktu_selesai' => 'datetime',
+        'is_completed' => 'boolean',
+        'completed_at' => 'datetime',
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function kategori()
-{
-    return $this->belongsTo(Kategori::class, 'id_kategori');
-}
-
-
-    public function users(): BelongsTo
-{
-    return $this->belongsTo(users::class);
-}
+    {
+        return $this->belongsTo(KategoriTugas::class, 'kategori_id');
+    }
 }
