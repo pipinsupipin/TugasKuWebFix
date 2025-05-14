@@ -7,9 +7,9 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
+// Route::get('/user', function (Request $request) {
+//     return $request->user();
+// })->middleware('auth:sanctum');
 
 Route::prefix('auth')->group(function () {
     Route::post('/register', RegisterController::class);
@@ -18,8 +18,14 @@ Route::prefix('auth')->group(function () {
 });
 
 Route::middleware('auth:sanctum')->group(function () {
+    Route::get('user', [\App\Http\Controllers\Api\UserController::class, 'getUserData']);
+    Route::put('user/profile', [\App\Http\Controllers\Api\UserController::class, 'updateProfile']);
+    Route::put('user/password', [\App\Http\Controllers\Api\UserController::class, 'updatePassword']);
+    Route::delete('user/{userId}', [\App\Http\Controllers\Api\UserController::class, 'deleteAccount']);
+
     // Kategori Tugas
     Route::apiResource('kategori', \App\Http\Controllers\Api\KategoriTugasController::class);
+    Route::get('/kategori/{id}/tugas', [\App\Http\Controllers\Api\KategoriTugasController::class, 'getTasksByCategory']);
     
     // Tugas
     Route::apiResource('tugas', \App\Http\Controllers\Api\TugasController::class);

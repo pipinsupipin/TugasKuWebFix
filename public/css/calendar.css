@@ -1,0 +1,279 @@
+/* Base and Reset Styles */
+:root {
+    --primary-color: #f8bd00;
+    --primary-light: rgba(250, 192, 0, 0.5);
+    --primary-gradient: linear-gradient(to bottom, #f8bd00, #f6e7be);
+    --text-color: #333;
+    --text-secondary: #6e6c6c;
+    --bg-color: #f9f9f9;
+    --white: #ffffff;
+    --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --border-radius-sm: 10px;
+    --border-radius-md: 16px;
+    --border-radius-lg: 20px;
+    --transition-speed: 0.3s;
+    --completed-color: #61D674;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-size: 1.6rem;
+    line-height: 1.5;
+    min-height: 100vh;
+}
+
+/* Calendar Wrapper */
+.calendar-wrapper {
+    display: flex;
+    gap: 1.25rem;
+    width: 100%;
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Calendar Container */
+.calendar-container {
+    background-color: var(--white);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    flex: 2;
+    height: fit-content;
+    padding: 1.5rem;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.6rem;
+    background: var(--primary-gradient);
+    color: var(--text-color);
+    border-radius: 1rem;
+    font-weight: 500;
+}
+
+.calendar-nav button {
+    background-color: var(--white);
+    border: none;
+    padding: 1rem 1.5rem;
+    color: var(--text-color);
+    cursor: pointer;
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+    transition: background-color var(--transition-speed);
+}
+
+.calendar-nav button:hover {
+    background-color: var(--primary-light);
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.calendar-day-header {
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--text-color);
+}
+
+.calendar-day {
+    position: relative;
+    padding: 1.5rem 0;
+    background-color: var(--white);
+    border-radius: 0.4rem;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 6rem;
+    border: 1px solid var(--primary-light);
+}
+
+.calendar-day:hover {
+    background-color: var(--primary-light);
+}
+
+.calendar-day.active {
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+/* Task Dot */
+.task-dot {
+    width: 0.6rem;
+    height: 0.6rem;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Tasks Container */
+.tasks-container {
+    background-color: var(--white);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    flex: 1;
+    padding: 1.5rem;
+}
+
+.tasks-header {
+    background: var(--primary-gradient);
+    padding: 1.5rem;
+    color: var(--text-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 1.5rem;
+}
+
+.tasks-title {
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.selected-date {
+    font-size: 1.6rem;
+    font-weight: 500;
+    /* font-style: italic; */
+}
+
+#tasks-list {
+    max-height: calc(70vh - 6rem);
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+.task-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    background: var(--bg-color);
+    padding: 1.6rem;
+    border-radius: var(--border-radius-md);
+    margin-bottom: 1.2rem;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-speed) ease;
+    flex-direction: row;
+    border-left: 4px solid var(--primary-color);
+}
+
+.task-item:hover {
+    background-color: #f5f5f5;
+    transform: translateX(5px);
+    border-left: 4px solid var(--completed-color);
+}
+
+.task-item.completed {
+    background: rgba(249, 249, 249, 0.7);
+    border-left-color: var(--completed-color);
+}
+
+.task-checkbox {
+    width: 2.8rem;
+    height: 2.8rem;
+    border: 2px solid #d0d0d0;
+    border-radius: var(--border-radius-sm);
+    position: relative;
+    cursor: pointer;
+    flex-shrink: 0;
+    margin-top: 0.3rem;
+    transition: all var(--transition-speed) ease;
+    background-color: var(--white);
+}
+
+.task-checkbox:hover {
+    border-color: var(--primary-color);
+    background-color: var(--primary-light);
+}
+
+.task-item.completed .task-checkbox {
+    background-color: var(--completed-color);
+    border-color: var(--completed-color);
+}
+
+.task-checkbox:hover .checkbox-icon {
+    opacity: 0.5;
+    stroke: #61D674;
+}
+
+.task-checkbox:hover {
+    background-color: #61D674;
+    transform: scale(1.05);
+}
+
+.task-item.completed .task-checkbox {
+    background-color: var(--completed-color);
+    border-color: var(--completed-color);
+}
+
+.task-checkbox .checkmark {
+    position: absolute;
+    top: 0.2rem;
+    left: 0.7rem;
+    width: 0.8rem;
+    height: 1.4rem;
+    border: solid var(--white);
+    border-width: 0 0.3rem 0.3rem 0;
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: opacity var(--transition-speed) ease;
+}
+
+.task-item.completed .task-checkbox .checkmark {
+    opacity: 1;
+}
+
+.task-content {
+    flex: 1;
+    overflow: hidden;
+}
+
+.task-content h4 {
+    margin: 0 0 0.5rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--text-color);
+    transition: all var(--transition-speed) ease;
+}
+
+.task-content p {
+    margin: 0.1rem 0;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    transition: all var(--transition-speed) ease;
+}
+
+.task-item.completed .task-content h4,
+.task-item.completed .task-content p {
+    text-decoration: line-through;
+    color: var(--text-secondary);
+    opacity: 0.8;
+}

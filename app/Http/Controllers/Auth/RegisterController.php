@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
+use App\Models\KategoriTugas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
@@ -17,7 +18,7 @@ class RegisterController extends Controller
      * Handle user registration request.
      *
      * @param Request $request
-     * @return JsonRespxonse
+     * @return JsonResponse
      */
     public function __invoke(Request $request): JsonResponse
     {
@@ -53,6 +54,15 @@ class RegisterController extends Controller
                 'password' => Hash::make($request->password),
             ]);
 
+            // Langsung tambahkan kategori default ke user ini
+            $defaultCategories = ['Tugas', 'Proyek', 'Rapat', 'Ujian'];
+            foreach ($defaultCategories as $categoryName) {
+                KategoriTugas::create([
+                    'user_id' => $user->id,
+                    'nama_kategori' => $categoryName,
+                ]);
+            }
+
             // Generate token
             $token = $user->createToken('TugasKu')->plainTextToken;
 
@@ -62,6 +72,7 @@ class RegisterController extends Controller
                 'user' => $user->only(['id', 'name', 'email', 'created_at']),
                 'token' => $token,
             ], 201);
+
         } catch (\Exception $e) {
             Log::error('Registration failed', [
                 'email' => $request->email,

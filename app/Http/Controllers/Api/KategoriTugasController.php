@@ -104,4 +104,23 @@ class KategoriTugasController extends Controller
             'message' => 'Kategori berhasil dihapus'
         ]);
     }
+
+    /**
+     * Display a listing of tasks under the specified category.
+     */
+    public function getTasksByCategory($id)
+    {
+        $user = Auth::user();
+        
+        // Cek apakah kategori dimiliki oleh user
+        $kategori = KategoriTugas::where('user_id', $user->id)->findOrFail($id);
+
+        // Ambil semua tugas yang terkait dengan kategori ini
+        $tugas = $kategori->tugas()->get();
+
+        return response()->json([
+            'success' => true,
+            'data' => $tugas
+        ]);
+    }           
 }

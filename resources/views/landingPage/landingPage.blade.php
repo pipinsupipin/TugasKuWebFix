@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TugasKu</title>
+    <title>TugasKu - Aplikasi Manajemen Tugas</title>
     <link rel="stylesheet" href="landingPage/landingPage.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,7 +28,6 @@
             <a href="#kalender">Kalender</a>
             <a href="/feedback">Kritik Saran</a>
             <a href="/about">Tentang Kami</a>
-            <a href="#banner">Buka di Browser</a>
         </nav>
         <button class="btn"><a href="{{ url('/loginpage') }}">Login</a></button>
     </header>
@@ -139,20 +138,60 @@
         </div>
     </footer>
 
-    <script src="public/script.js"></script>
     <script>
-        // Ambil semua link di navbar
-        const navbarLinks = document.querySelectorAll('.navbar a[href^="#"]');
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.navbar a');
 
-        navbarLinks.forEach((link) => {
-            link.addEventListener("click", function () {
-                // Hapus class 'active' dari semua link
-                navbarLinks.forEach((el) => el.classList.remove("active"));
+        window.addEventListener('scroll', () => {
+            let current = '';
 
-                // Tambahkan class 'active' ke link yang diklik
-                this.classList.add("active");
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.offsetHeight;
+                if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
             });
         });
-
-    </script>
+        document.querySelectorAll('.navbar a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+        
+        document.getElementById('login').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = "/loginpage";
+        });
+        
+        document.getElementById('download').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.open("https://play.google.com/store", "_blank");
+        });
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+        </script>
 </body>

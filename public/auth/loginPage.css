@@ -2,172 +2,243 @@ body {
     margin: 0;
     padding: 0;
     font-family: "Inter", sans-serif;
-    background-image: url("img/Login\ Page.png");
+    background-image: url("login-page.png");
     background-size: cover;
-    background-position: center; /* Posisi tengah */
+    background-position: center;
     background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
 .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    align-content: center;
-    max-width: 1000px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: transparent;
+    width: 75rem;
+    height: 45rem;
     position: relative;
 }
 
-.form-section {
+.brand-side, .form-side {
+    position: absolute;
+    top: 0;
     width: 50%;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(5px);
-    color: white;
-    border-radius: 50px;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
-    height: 290px;
-    position: relative;
-    right: 90px; /* Pindahkan ke kanan */
-    z-index: 0;
-    margin-top: 50px;
-    filter: drop-shadow(0px 20px 30px rgba(0, 0, 0, 0.5));
+    height: 100%;
+    transition: all 0.8s ease-in-out;
 }
 
-.image-section {
-    width: 30%;
-    padding: 30px;
+.brand-side {
+    left: 0;
+    z-index: 2;
+    margin-top: 8%;
+    margin-left: 3%;
+    height: 60%;
+    width: 35%;
     background-color: white;
-    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    height: 320px;
-    position: relative;
-    z-index: 1;
-    left: 130px; /* Pindahkan ke kiri */
-    overflow: visible;
-    margin-top: 50px;
-    filter: drop-shadow(0px 20px 30px rgba(0, 0, 0, 0.5));
+    padding: 2rem;
+    border-radius: 3rem;
 }
 
-.form-section h1 {
-    font-size: 30px;
-    margin-bottom: 8px;
-    margin-left: 100px; /* Dorong input ke kanan */
-    margin-right: auto; /* Jarak dari tepi kanan */
-    text-align: center; /* Rata kanan */
+
+.form-side {
+    right: 0;
+    margin-top: 11%;
+    height: 50%;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(2rem);
+    -webkit-backdrop-filter: blur(2rem); 
+    padding: 2rem 2rem 2rem 8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 3rem;
+    border: 0.1rem solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 2 8 0 rgba(31, 38, 135, 0.1);
 }
 
-.form-section p {
-    font-size: 10px;
-    margin-left: 100px; /* Dorong input ke kanan */
-    margin-right: auto; /* Jarak dari tepi kanan */
-    text-align: center; /* Rata kanan */
-    color: black;
+.container.active .brand-side {
+    left: 55%;
+}
+
+.container.active .form-side {
+    right: 35%;
+    padding: 2rem 8rem 2rem 2rem;
+}
+
+.backpack-img {
+    width: 100%;
+    margin-top: -10rem;
+}
+
+/* TugasKu */
+.brand {
+    font-size: 3.5rem;
+    font-weight: 800;
+}
+
+.dot {
+    color: #4359FF;
+    font-size: 1.5rem;
+}
+
+.ku {
+    color: #F8BD00;
+}
+
+.brand-slogan {
+    font-size: 1rem;
     font-weight: 500;
-    display: block;
+    color: #666;
 }
 
-.form-section input {
-    width: 50%;
-    padding: 10px;
+.form-content {
+    width: 100%;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.form-title {
+    font-size: 3rem;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.form-subtitle {
+    font-size: 0.8rem;
+    color: #000000;
+    text-align: center;
+    margin-top: -2rem;
+    margin-bottom: 1rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 1.3rem;
+    width: 100%;
+    margin-left: 2rem;
+}
+
+.input-group input {
+    width: 80%;
+    height: 0px;    
+    padding: 0.8rem;
     border: none;
-    border-bottom: 1px solid #000000;
-    margin-left: auto; /* Dorong input ke kanan */
-    margin-right: 60px; /* Jarak dari tepi kanan */
-    font-size: 8px;
+    border-bottom: 0.08rem solid #1e1e1e;
     background-color: transparent;
-    color: white;
     border-radius: 0;
-    display: block; /* Pastikan input adalah block element */
+    font-size: 1rem;
+    transition: border-color 0.3s;
 }
 
-.form-section input:focus {
-    border-bottom: 2px solid white;
+.input-group input:focus {
+    border-color: #F8BD00;
     outline: none;
 }
 
-.form-section button {
-    width: 53%;
-    padding: 10px;
+.input-group i {
+    position: absolute;
+    color: #1e1e1e;
+}
+
+.btn {
+    background-color: #fff;
+    color: #1e1e1e;
     border: none;
-    background-color: rgb(255, 255, 255);
-    color: black;
-    font-weight: bold;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    display: block;
-    margin-top: 20px;
-    margin-left: auto; /* Dorong input ke kanan */
-    margin-right: 60px; /* Jarak dari tepi kanan */
-}
-
-.form-section button:hover {
-    background-color: #fcd34d;
-}
-
-.login-prompt {
-    text-align: center;
-    margin-top: 10px;
-    font-size: 0.9rem;
-}
-
-.link-container {
-    font-size: 9px;
-    display: flex;
-    margin-top: 10px;
-    margin-right: -120px;
-    justify-content: center; /* Pusatkan jika perlu */
-    gap: 100px; /* Kurangi jarak antar elemen */
-}
-
-.New-Account a,
-.Forget-Password a {
-    color: black;
-    text-decoration: underline;
-}
-
-.image-section img {
-    width: 300px;
-    height: auto;
-    position: absolute;
-    bottom: 150px;
-    left: 7%;
-    z-index: 2;
-}
-
-.image-section::after {
-    content: "";
-    position: absolute;
-    bottom: 160px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 250px;
-    height: 20px;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 90%;
-    filter: blur(10px);
-    z-index: 1;
-}
-
-.image-section h1 {
-    font-size: 35px;
-    font-weight: 900;
-    margin-top: 210px;
-    color: #333;
-}
-
-.highlight {
-    color: #f8bd00;
-}
-.dot {
-    color: blue;
-}
-
-.image-section p {
-    color: #555;
-    margin-top: -10px;
+    padding: 1rem;
+    border-radius: 2rem;
     font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 80%;
+    margin-top: 2rem;
+    margin-left: 2.5rem;
+}
+
+.btn:hover {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.form-footer {
+    display: flex;
+    text-align: center;
+    flex-wrap: 2;
+    justify-content: space-around;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: #1e1e1e;
+    font-weight: 500;
+    cursor: pointer;
+    margin-right: 3rem;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+}
+
+.visible {
+    opacity: 1;
+    pointer-events: auto;
+    position: relative;
+}
+
+/* ========== ALERT STYLING ========== */
+.alert-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.alert-message {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #ff4d4d;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.4s ease-out;
+    opacity: 0.95;
+    position: relative;
+}
+
+.alert-message.success {
+    background-color: #4CAF50;
+}
+
+.alert-message.warning {
+    background-color: #FFA500;
+}
+
+.alert-message .close-btn {
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    margin-left: auto;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 0.95;
+    }
 }
