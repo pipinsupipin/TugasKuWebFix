@@ -117,11 +117,13 @@ registerButton.addEventListener('click', async function () {
     }
 
     try {
+        // Ambil CSRF token dari server
         await fetch('http://localhost:8000/sanctum/csrf-cookie', {
             method: 'GET',
             credentials: 'include',
         });
 
+        // Kirim data registrasi ke server
         const response = await fetch('http://localhost:8000/api/auth/register', {
             method: 'POST',
             headers: {
@@ -137,19 +139,26 @@ registerButton.addEventListener('click', async function () {
             credentials: 'include',
         });
 
-        const data = await response.text();
-
+        // Jika respons gagal, tampilkan pesan error
         if (!response.ok) {
+            const errorData = await response.json();
             let errorMessage = 'Registrasi gagal. Periksa isian form.';
-            if (data.message.includes('email')) {
+            if (errorData.message.includes('email')) {
                 errorMessage = 'Email sudah terdaftar.';
-            } else if (data.message.includes('validation')) {
+            } else if (errorData.message.includes('validation')) {
                 errorMessage = 'Silakan periksa kembali format data yang dimasukkan.';
             }
             showAlert(errorMessage, 'error');
             return;
         }
 
+        // Ambil data JSON dari response
+        const data = await response.json();
+
+        // Simpan token ke localStorage
+        localStorage.setItem('auth_token', data.token);
+
+        // Redirect ke halaman utama
         window.location.href = '/homepage';
 
     } catch (error) {

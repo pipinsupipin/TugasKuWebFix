@@ -20,7 +20,7 @@
 
     <!-- Row Tengah: Tambah Kategori & Edit Kategori -->
     <div class="add-category">
-        <button class="btn-add-category">Tambah Kategori Baru +</button>
+        <button class="btn-add-category">Tambah Kategori Baru</button>
         <button class="btn-edit-category hidden">Edit Kategori</button>
     </div>
 
@@ -57,6 +57,5 @@
 @endsection
 
 @push('scripts')
-    <script src="{{ asset('/js/components/categoryCard.js') }}"></script>
     <script src="{{ asset('js/kategoriPage.js') }}"></script>
 @endpush
