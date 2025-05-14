@@ -6,168 +6,210 @@ body {
     background-size: cover;
     background-position: center; /* Posisi tengah */
     background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: background 0.8s ease;
 }
 
 .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    align-content: center;
-    max-width: 1000px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: transparent;
+    width: 900px;
+    height: 500px;
     position: relative;
+    overflow: hidden;
+  
+   
 }
 
-.form-section {
+.brand-side, .form-side {
+    position: absolute;
+    top: 0;
     width: 50%;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(5px);
-    color: white;
-    border-radius: 50px;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
-    height: 290px;
-    position: relative;
-    right: 90px; /* Pindahkan ke kanan */
-    z-index: 0;
-    margin-top: 50px;
-    filter: drop-shadow(0px 20px 30px rgba(0, 0, 0, 0.5));
+    height: 100%;
+    transition: all 0.8s ease-in-out;
 }
 
-.image-section {
-    width: 30%;
-    padding: 30px;
+.brand-side {
+    left: 0;
+    z-index: 2;
+    margin-top: 8%;
+    margin-left: 3%;
+    height: 60%;
+    width: 35%;
     background-color: white;
-    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    height: 320px;
-    position: relative;
-    z-index: 1;
-    left: 130px; /* Pindahkan ke kiri */
-    overflow: visible;
-    margin-top: 50px;
-    filter: drop-shadow(0px 20px 30px rgba(0, 0, 0, 0.5));
+    padding: 40px 20px;
+    border-radius: 20px; /* <- ubah ini */
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
 }
 
-.form-section h1 {
-    font-size: 30px;
-    margin-bottom: 8px;
-    margin-left: 100px; /* Dorong input ke kanan */
-    margin-right: auto; /* Jarak dari tepi kanan */
-    text-align: center; /* Rata kanan */
+
+.form-side {
+    right: 0;
+    margin-top: 10.5%;
+    margin-right: 3%;
+    height: 50%;
+    background-color: rgba(255, 255, 255, 0.15); /* Lebih transparan */
+    backdrop-filter: blur(10px); /* Efek blur utama */
+    -webkit-backdrop-filter: blur(10px); 
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Tambahan: border halus */
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1); /* Tambahan: shadow lembut */
 }
 
-.form-section p {
+
+.container.active .brand-side {
+    left: 55%;
+    border-radius: 20px;
+    
+}
+
+.container.active .form-side {
+    right: 35%;
+    border-radius: 20px;
+}
+
+.backpack-img {
+    width: 300px;
+    height: 300px;
+    margin-bottom: 90px;
+    
+}
+
+.brand{
+    margin-top: -100px;
+}
+.brand-name {
+    font-size: 32px;
+    font-weight: bold;
+    
+}
+
+.brand-name span {
+    color: #ffaa00;
+}
+
+.brand-slogan {
+    font-size: 14px;
+    color: #666;
+    margin-top: -10px;
+ 
+}
+
+.form-content {
+    width: 100%;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.login-form, .register-form {
+    transition: opacity 0.3s ease-in-out;
+    
+}
+
+.form-title {
+    font-size: 35px;
+    margin-top: 5px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.form-subtitle {
     font-size: 10px;
-    margin-left: 100px; /* Dorong input ke kanan */
-    margin-right: auto; /* Jarak dari tepi kanan */
-    text-align: center; /* Rata kanan */
-    color: black;
-    font-weight: 500;
-    display: block;
+    color: #000000;
+    text-align: center;
+    margin-top: -30px;
 }
 
-.form-section input {
-    width: 50%;
-    padding: 10px;
-    border: none;
-    border-bottom: 1px solid #000000;
-    margin-left: auto; /* Dorong input ke kanan */
-    margin-right: 60px; /* Jarak dari tepi kanan */
-    font-size: 8px;
-    background-color: transparent;
-    color: white;
-    border-radius: 0;
-    display: block; /* Pastikan input adalah block element */
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+    width: 90%;
+    margin-left: 40px;
+    margin-top:10px ;
 }
 
-.form-section input:focus {
-    border-bottom: 2px solid white;
+.input-group input {
+    width: 80%;
+    height: 0px;    
+    padding: 11px 12px;
+    border: none; /* Hilangkan semua border */
+    border-bottom: 2px solid #1e1e1e; /* Tambahkan hanya garis bawah */
+    background-color: transparent; /* Transparan */
+    border-radius: 0; /* Tidak perlu sudut membulat */
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #5d7bf9;
     outline: none;
 }
 
-.form-section button {
-    width: 53%;
-    padding: 10px;
+.input-group i {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #1e1e1e;
+}
+
+.btn {
+    background-color: #fff;
+    color: #444;
     border: none;
-    background-color: rgb(255, 255, 255);
-    color: black;
-    font-weight: bold;
-    border-radius: 10px;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
     cursor: pointer;
-    font-size: 0.9rem;
-    display: block;
-    margin-top: 20px;
-    margin-left: auto; /* Dorong input ke kanan */
-    margin-right: 60px; /* Jarak dari tepi kanan */
+    transition: all 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    margin-bottom: -10px;
+    margin-left: 40px;
 }
 
-.form-section button:hover {
-    background-color: #fcd34d;
+.btn-primary {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
 }
 
-.login-prompt {
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.form-footer {
     text-align: center;
-    margin-top: 10px;
-    font-size: 0.9rem;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #888;
 }
 
-.link-container {
-    font-size: 9px;
-    display: flex;
-    margin-top: 10px;
-    margin-right: -120px;
-    justify-content: center; /* Pusatkan jika perlu */
-    gap: 100px; /* Kurangi jarak antar elemen */
+.form-footer a {
+    color: #000000;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 500;
 }
 
-.New-Account a,
-.Forget-Password a {
-    color: black;
-    text-decoration: underline;
-}
-
-.image-section img {
-    width: 300px;
-    height: auto;
+.hidden {
+    opacity: 0;
+    pointer-events: none;
     position: absolute;
-    bottom: 150px;
-    left: 7%;
-    z-index: 2;
 }
 
-.image-section::after {
-    content: "";
-    position: absolute;
-    bottom: 160px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 250px;
-    height: 20px;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 90%;
-    filter: blur(10px);
-    z-index: 1;
-}
-
-.image-section h1 {
-    font-size: 35px;
-    font-weight: 900;
-    margin-top: 210px;
-    color: #333;
-}
-
-.highlight {
-    color: #f8bd00;
-}
-.dot {
-    color: blue;
-}
-
-.image-section p {
-    color: #555;
-    margin-top: -10px;
-    font-size: 1rem;
+.visible {
+    opacity: 1;
+    pointer-events: auto;
+    position: relative;
 }

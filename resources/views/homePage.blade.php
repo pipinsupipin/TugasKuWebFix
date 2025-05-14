@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage TugasKu</title>
     <link rel="stylesheet" href="homePage.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -193,15 +194,21 @@
                                 <p><span class="detail-tugas">1/2 Selesai</span></p>
                             </div>
                         </div>
-                        <div class="timer">
-                            <div class="icon">
-                                <img src="img/play.png" alt="">
-                                <img src="img/pause.png" alt="">
+                        <div class="pomodoro-container">
+                            <div class="timer-container">
+                                <div id="timer">25:00</div>
+                                <div id="cycleInfo">Pomodoro Cycle: 0</div>
                             </div>
-                            <div class="time">
-                                <h1>01:24:08</h1>
+                            <div class="buttons">
+                                <button id="startPauseBtn" class="start-pause">
+                                    <i class="fas fa-play"> Start </i>
+                                </button>
+                                <button id="resetBtn" class="reset">
+                                    <i class="fas fa-undo"> Reset </i>
+                                </button>
                             </div>
                         </div>
+
                     </div>
                 </div>
                 <div class="kanan">
