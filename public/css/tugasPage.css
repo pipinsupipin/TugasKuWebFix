@@ -1,0 +1,571 @@
+/* File: public/css/tugasPage.css */
+:root {
+    --primary-color: #ffc107;
+    --primary-dark: #ffa000;
+    --primary-light: #ffecb3;
+    --secondary-color: #4caf50;
+    --text-color: #333333;
+    --text-light: #757575;
+    --background-color: #f5f5f5;
+    --surface-color: #ffffff;
+    --error-color: #f44336;
+    --border-color: #e0e0e0;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width:160rem; /* Memperbesar lebar container */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.header h1 {
+    margin: 0;
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 28px;
+}
+
+.filter-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.filter-options {
+    display: flex;
+    gap: 10px;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.filter-btn:hover {
+    background-color: var(--primary-light);
+}
+
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: var(--surface-color);
+    border-color: var(--primary-dark);
+}
+
+.add-task-btn {
+    padding: 12px 24px;
+    background-color: var(--primary-color);
+    color: var(--surface-color);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    font-size: 16px;
+}
+
+.add-task-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+/* Tasks Container */
+.tasks-container {
+    background-color: var(--surface-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px var(--shadow-color);
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.tasks-header {
+    display: grid;
+    grid-template-columns: 80px 2fr 3fr 1.5fr 1.5fr 120px; /* Perlebar kolom aksi */
+    padding: 15px;
+    background-color: var(--primary-light);
+    font-weight: 600;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 16px;
+}
+
+.tasks-list {
+    max-height: 600px;
+    margin-top: 0.5rem;
+    overflow-y: auto;
+}
+
+.task-item {
+    display: grid;
+    background-color: #333333;
+    gap: 100rem;
+    grid-template-columns: 100px 7fr 3fr 1.5fr 1.5fr 120px; /* Perlebar kolom aksi */
+    padding: 15px;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.3s ease;
+    align-items: center;
+}
+
+/* Perbaikan alignment grid layout */
+
+/* Menggunakan grid yang sama persis untuk header dan item */
+.tasks-header,
+.task-item {
+    display: grid;
+    grid-template-columns: 80px 2fr 3fr 1.5fr 1.5fr 120px;
+    padding: 15px;
+    align-items: center;
+    gap: 10px; /* Nilai yang lebih besar = jarak yang lebih besar */
+}
+
+.task-item .task-title {
+    margin-left: 15rem;
+}
+.task-item .task-desc {
+    margin-left: 19rem;
+}
+.task-item .task-date {
+    margin-left: 20rem;
+}
+.task-item .task-actions {
+    margin-left: 20rem;
+}
+/* Memastikan konten setiap sel dalam grid sejajar */
+.tasks-header > div,
+.task-item > div {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+/* Khusus untuk status/checkbox */
+.task-check {
+    justify-content: center;
+}
+
+/* Khusus untuk judul */
+.task-title {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Khusus untuk deskripsi */
+.task-desc {
+    justify-content: flex-start;
+}
+
+/* Khusus untuk tanggal */
+.task-date {
+    justify-content: flex-start;
+}
+
+/* Khusus untuk aksi */
+.task-actions {
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Menambahkan highlight pada header untuk visual yang lebih baik */
+.tasks-header {
+    background-color: var(--primary-light);
+    font-weight: 600;
+}
+
+/* Memastikan setiap baris task memiliki border yang konsisten */
+.task-item {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.task-item:last-child {
+    border-bottom: none;
+}
+
+.task-item:hover {
+    background-color: #f9f9f9;
+}
+
+.task-item:last-child {
+    border-bottom: none;
+}
+
+/* Custom checkbox styles */
+.task-checkbox {
+    width: 28px;
+    height: 28px;
+    border: 2px solid var(--primary-color);
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.checkmark {
+    width: 16px;
+    height: 16px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.task-title {
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    font-size: 1.5rem;
+}
+
+.task-category {
+    font-size: 0.75rem;
+    background-color: var(--primary-light);
+    color: var(--text-color);
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.task-desc {
+    /* color: var(--text-light); */
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 1.5rem;
+}
+
+.task-date {
+    display: flex;
+    align-items: center;
+    /* color: var(--text-light); */
+    font-size: 1.5rem;
+}
+
+.task-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 1.5rem;
+}
+
+.action-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 8px;
+    transition: all 0.3s ease;
+    font-size: 18px;
+    width: 50px;
+    height: 25px;
+    background-color: var(--primary-color);
+}
+
+/* .edit-btn {
+    color: var(--error-color);
+}
+
+.delete-btn {
+    color: var(--error-color);
+} */
+
+.action-btn:hover {
+    transform: scale(1.2);
+}
+
+.completed .task-title,
+.completed .task-desc,
+.completed .task-date {
+    text-decoration: line-through;
+    color: var(--text-light);
+}
+
+.no-tasks {
+    padding: 40px 20px;
+    text-align: center;
+    color: var(--text-light);
+    font-size: 16px;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: var(--surface-color);
+    margin: 8% auto;
+    padding: 0;
+    width: 550px;
+    max-width: 90%;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px var(--shadow-color);
+    animation: modalOpen 0.3s ease-out;
+}
+
+.delete-modal {
+    width: 420px;
+}
+
+@keyframes modalOpen {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-header {
+    padding: 18px 24px;
+    background-color: var(--primary-light);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: var(--text-color);
+}
+
+.close-modal {
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--text-light);
+    line-height: 1;
+}
+
+.close-modal:hover {
+    color: var(--text-color);
+}
+
+.modal-body {
+    padding: 24px;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px var(--primary-light);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.submit-btn {
+    padding: 12px 24px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+.cancel-btn {
+    padding: 12px 24px;
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.cancel-btn:hover {
+    background-color: #f1f1f1;
+}
+
+.delete-btn {
+    padding: 12px 24px;
+    background-color: var(--error-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #d32f2f;
+}
+
+/* Notification Styles */
+#notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.notification {
+    margin-bottom: 12px;
+    transition: all 0.3s ease;
+    color: white;
+    padding: 14px 24px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    min-width: 300px;
+}
+
+.notification.success {
+    background-color: #4caf50;
+}
+
+.notification.error {
+    background-color: #f44336;
+}
+
+.notification.info {
+    background-color: #2196f3;
+}
+
+.notification-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.notification-close {
+    background: none;
+    border: none;
+    color: white;
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Responsive Styles */
+@media (max-width: 980px) {
+    .tasks-header,
+    .task-item {
+        grid-template-columns: 60px 2fr 2fr 120px;
+    }
+
+    .task-desc {
+        display: none;
+    }
+
+    .task-date:first-of-type {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .filter-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .add-task-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .tasks-header,
+    .task-item {
+        grid-template-columns: 60px 1fr 100px;
+    }
+
+    .task-date {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions button {
+        width: 100%;
+    }
+}
