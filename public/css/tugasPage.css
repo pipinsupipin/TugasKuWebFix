@@ -22,7 +22,7 @@ body {
 }
 
 .container {
-    max-width:160rem; /* Memperbesar lebar container */
+    max-width:120rem; /* Memperbesar lebar container */
     margin: 0 auto;
     padding: 20px;
 }
@@ -126,7 +126,7 @@ body {
     display: grid;
     background-color: #333333;
     gap: 100rem;
-    grid-template-columns: 100px 7fr 3fr 1.5fr 1.5fr 120px; /* Perlebar kolom aksi */
+    /* grid-template-columns: 100px 7fr 3fr 1.5fr 1.5fr 120px; Perlebar kolom aksi */
     padding: 15px;
     border-bottom: 1px solid var(--border-color);
     transition: background-color 0.3s ease;
@@ -146,16 +146,16 @@ body {
 }
 
 .task-item .task-title {
-    margin-left: 15rem;
+    margin-left: 10rem;
 }
 .task-item .task-desc {
-    margin-left: 19rem;
+    margin-left: 12rem;
 }
 .task-item .task-date {
-    margin-left: 20rem;
+    margin-left: 15rem;
 }
 .task-item .task-actions {
-    margin-left: 20rem;
+    margin-left: 10rem;
 }
 /* Memastikan konten setiap sel dalam grid sejajar */
 .tasks-header > div,

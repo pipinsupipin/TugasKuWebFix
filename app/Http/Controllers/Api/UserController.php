@@ -28,44 +28,54 @@ class UserController extends Controller
     // Mengubah nama pengguna dan foto profil
     public function updateProfile(Request $request)
     {
-        $user = Auth::user();
-        
-        // Validasi input
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Maksimal 2MB
-        ]);
-
-        // Update foto profil jika ada
-        if ($request->hasFile('profile_picture')) {
-            // Hapus foto lama jika ada
-            if ($user->profile_picture) {
-                Storage::delete('public/'.$user->profile_picture);
-            }
-
-            // Simpan foto baru
-            $filePath = $request->file('profile_picture')->store('profiles', 'public');
-            $profile_picture = $filePath;
-        } else {
-            $profile_picture = $user->profile_picture;
-        }
-
-        // Update data di database langsung via Query Builder
-        DB::table('users')
-            ->where('id', $user->id)
-            ->update([
-                'name' => $request->name,
-                'profile_picture' => $profile_picture,
-                'updated_at' => now(),
+        try {
+            $user = Auth::user();
+            
+            // Validasi input
+            $validated = $request->validate([
+                'name' => 'required|string|max:255',
+                'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Maksimal 2MB
             ]);
-
-        return response()->json([
-            'message' => 'Profile updated successfully!',
-            'user' => [
-                'name' => $request->name,
-                'profile_picture' => $profile_picture ? asset('storage/'.$profile_picture) : null,
-            ]
-        ]);
+            
+            // Update foto profil jika ada
+            if ($request->hasFile('profile_picture')) {
+                // Hapus foto lama jika ada
+                if ($user->profile_picture) {
+                    Storage::delete('public/'.$user->profile_picture);
+                }
+                
+                // Simpan foto baru
+                $filePath = $request->file('profile_picture')->store('profiles', 'public');
+                $profile_picture = $filePath;
+            } else {
+                $profile_picture = $user->profile_picture;
+            }
+            
+            // Update data di database langsung via Query Builder
+            DB::table('users')
+                ->where('id', $user->id)
+                ->update([
+                    'name' => $request->name,
+                    'profile_picture' => $profile_picture,
+                    'updated_at' => now(),
+                ]);
+            
+            return response()->json([
+                'message' => 'Profile updated successfully!',
+                'user' => [
+                    'name' => $request->name,
+                    'profile_picture' => $profile_picture ? asset('storage/'.$profile_picture) : null,
+                ]
+            ]);
+            
+        } catch (\Exception $e) {
+            // Tangkap error apapun
+            return response()->json([
+                'message' => 'Failed to update profile',
+                'error' => $e->getMessage(),
+                'trace' => app()->environment('local') ? $e->getTrace() : null // Tampilkan trace hanya di local
+            ], 500);
+        }
     }
 
     // Mengubah kata sandi pengguna

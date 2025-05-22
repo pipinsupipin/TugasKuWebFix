@@ -19,7 +19,7 @@ Route::prefix('auth')->group(function () {
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('user', [\App\Http\Controllers\Api\UserController::class, 'getUserData']);
-    Route::put('user/profile', [\App\Http\Controllers\Api\UserController::class, 'updateProfile']);
+    Route::post('user/profile', [\App\Http\Controllers\Api\UserController::class, 'updateProfile']);
     Route::put('user/password', [\App\Http\Controllers\Api\UserController::class, 'updatePassword']);
     Route::delete('user/{userId}', [\App\Http\Controllers\Api\UserController::class, 'deleteAccount']);
 
