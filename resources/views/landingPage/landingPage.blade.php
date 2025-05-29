@@ -26,7 +26,7 @@
             <a href="#streak">Streak</a>
             <a href="#kategori">Kategori</a>
             <a href="#kalender">Kalender</a>
-            <a href="/feedback">Kritik Saran</a>
+            <a href="/feedbackPage">Kritik Saran</a>
             <a href="/about">Tentang Kami</a>
         </nav>
         <button class="btn"><a href="{{ url('/loginpage') }}">Login</a></button>

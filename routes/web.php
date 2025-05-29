@@ -32,7 +32,7 @@ Route::get('/aboutuspage', function () {
 Route::get('/about', function () {
     return view('landingPage.aboutPage');
 });
-Route::get('/feedback', function () {
+Route::get('/feedbackPage', function () {
     return view('landingPage.feedbackPage');
 });
 
@@ -61,3 +61,20 @@ Route::get('/tugas-view', function () {
 
     return view('tugas.index', compact('tugas'));
 });
+
+
+
+use App\Http\Controllers\FeedbackController;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/feedbackPage', [FeedbackController::class, 'index'])->name('feedback.index');
+Route::post('/feedbackPage', [FeedbackController::class, 'store'])->name('feedback.store');
+
+// Route tambahan
+Route::get('/feedback/statistics', [FeedbackController::class, 'statistics'])->name('feedback.statistics');
+Route::get('/feedback/{feedback}/download', [FeedbackController::class, 'downloadFile'])->name('feedback.download');

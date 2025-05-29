@@ -1,4 +1,10 @@
-@include("layout.sidebarA")
+@extends('layouts.app')
+
+@section('title', 'Daftar Tugas | TugasKu')
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('mainPage/aboutUs.css') }}">
+@endpush
+@section('content')
 <div class="main-content">
   <div class="content-container">
     <div class="about-card">
@@ -128,6 +134,7 @@
     </div>
   </div>
 </div>
+@endsection
 <script src="https://unpkg.com/lucide@latest"></script>
 <script>
   lucide.createIcons();
