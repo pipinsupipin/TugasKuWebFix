@@ -34,5 +34,4 @@ Route::middleware('auth:sanctum')->group(function () {
     // Streaks
     Route::get('streaks', [\App\Http\Controllers\Api\StreakController::class, 'index']);
     Route::get('streaks/summary', [\App\Http\Controllers\Api\StreakController::class, 'summary']);
-    // Route::get('streaks/today', [\App\Http\Controllers\Api\StreakController::class, 'checkTodayTasks']);
 });

@@ -35,7 +35,6 @@ Route::get('/about', function () {
 Route::get('/feedbackPage', function () {
     return view('landingPage.feedbackPage');
 });
-
 Route::get('/admindashboard', function () {
     return view('mainPage.adminDashboard');
 });

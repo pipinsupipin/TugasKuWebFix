@@ -66,11 +66,13 @@ loginButton.addEventListener('click', async function () {
     const password = document.querySelector('.login-form input[type="password"]').value;
 
     try {
+        // Dapatkan CSRF cookie dulu (untuk Laravel Sanctum)
         await fetch('http://localhost:8000/sanctum/csrf-cookie', {
             method: 'GET',
             credentials: 'include',
         });
 
+        // Kirim permintaan login
         const response = await fetch('http://localhost:8000/api/auth/login', {
             method: 'POST',
             headers: {
@@ -81,21 +83,31 @@ loginButton.addEventListener('click', async function () {
             credentials: 'include',
         });
 
-    if (!response.ok) {
-        const errorData = await response.json();
-        let errorMessage = 'Login gagal. Periksa email dan kata sandi Anda.';
-        if (errorData.message.includes('Unauthorized')) {
-            errorMessage = 'Email atau kata sandi yang Anda masukkan salah.';
-        } else if (errorData.message.includes('User not found')) {
-            errorMessage = 'Akun tidak ditemukan. Silakan daftar terlebih dahulu.';
-        }
-        showAlert(errorMessage, 'error');
-        return;
+        if (!response.ok) {
+            const errorData = await response.json();
+            let errorMessage = 'Login gagal. Periksa email dan kata sandi Anda.';
+            if (errorData.message?.includes('Unauthorized')) {
+                errorMessage = 'Email atau kata sandi yang Anda masukkan salah.';
+            } else if (errorData.message?.includes('User not found')) {
+                errorMessage = 'Akun tidak ditemukan. Silakan daftar terlebih dahulu.';
+            }
+            showAlert(errorMessage, 'error');
+            return;
         }
 
-        const token = await response.text();
-        localStorage.setItem('auth_token', token);
-        window.location.href = '/homepage';
+        // ✅ Ambil JSON (bukan .text())
+        const data = await response.json();
+
+        // Simpan token dan user ke localStorage
+        localStorage.setItem('auth_token', data.token);
+        localStorage.setItem('user_data', JSON.stringify(data.user));
+
+        // Redirect berdasarkan role
+        if (data.user.role === 'admin') {
+            window.location.href = '/admindashboard';
+        } else {
+            window.location.href = '/homepage';
+        }
 
     } catch (error) {
         console.error('Login Error:', error);

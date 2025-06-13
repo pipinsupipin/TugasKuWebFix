@@ -28,7 +28,17 @@ class LoginController extends Controller
             ]);
         }
 
-        return $user->createToken('TugasKu')->plainTextToken;
+        return response()->json([
+            'token' => $user->createToken('TugasKu')->plainTextToken,
+            'user' => [
+                'id' => $user->id,
+                'name' => $user->name,
+                'email' => $user->email,
+                'role' => $user->role, // pastikan kolom ini ada di database
+            ]
+        ]);
+
+        // return $user->createToken('TugasKu')->plainTextToken;
     }
 
 }
