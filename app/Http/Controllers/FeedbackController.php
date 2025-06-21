@@ -39,7 +39,7 @@ class FeedbackController extends Controller
             Log::warning('Feedbacks table might not exist: ' . $e->getMessage());
         }
 
-        return view('landingPage.feedbackPage', compact('stats', 'recentFeedbacks'));
+        return view('pages.feedbackPage', compact('stats', 'recentFeedbacks'));
     }
 
     /**
@@ -158,13 +158,13 @@ class FeedbackController extends Controller
             abort(404, 'File tidak ditemukan');
         }
 
-        $filePath = 'feedback_files/' . $feedback->file_pendukung;
-        
-        if (!Storage::disk('public')->exists($filePath)) {
+        $filePath = storage_path('app/public/feedback_files/' . $feedback->file_pendukung);
+
+        if (!file_exists($filePath)) {
             abort(404, 'File tidak ditemukan');
         }
 
-        return Storage::disk('public')->download($filePath);
+        return response()->download($filePath);
     }
 
     /**

@@ -57,5 +57,5 @@
 @endsection
 
 @push('scripts')
-    <script src="{{ asset('js/kategoriPage.js') }}"></script>
+    <script type="module" src="{{ asset('js/kategoriPage.js') }}"></script>
 @endpush

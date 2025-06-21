@@ -2,7 +2,7 @@
 
 @section('title', 'Daftar Tugas | TugasKu')
 @push('styles')
-    <link rel="stylesheet" href="{{ asset('mainPage/aboutUs.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/aboutUs.css') }}">
 @endpush
 @section('content')
 <div class="main-content">
@@ -135,7 +135,7 @@
   </div>
 </div>
 @endsection
-<script src="https://unpkg.com/lucide@latest"></script>
+<script type="module" src="https://unpkg.com/lucide@latest"></script>
 <script>
   lucide.createIcons();
 </script>

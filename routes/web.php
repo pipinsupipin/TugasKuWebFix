@@ -6,7 +6,7 @@ use App\Http\Controllers\Api\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('landingPage.landingPage');
+    return view('pages.landingPage');
 });
 Route::get('/loginpage', function () {
     return view('pages.loginPage');
@@ -27,16 +27,16 @@ Route::get('/settingspage', function () {
     return view('pages.settings');
 });
 Route::get('/aboutuspage', function () {
-    return view('mainPage.aboutUsPage');
+    return view('pages.aboutUsPage');
 });
 Route::get('/about', function () {
-    return view('landingPage.aboutPage');
+    return view('pages.aboutPage');
 });
 Route::get('/feedbackPage', function () {
-    return view('landingPage.feedbackPage');
+    return view('pages.feedbackPage');
 });
 Route::get('/admindashboard', function () {
-    return view('mainPage.adminDashboard');
+    return view('pages.adminDashboard');
 });
 
 Route::get('/ubah-profil', [UserController::class, 'edit'])->name('profile.edit');

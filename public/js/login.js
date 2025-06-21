@@ -60,20 +60,19 @@ function showAlert(message, type = 'error') {
 }
 
 // ========== LOGIN HANDLER ==========
+const baseUrl = import.meta.env.VITE_API_BASE_URL;
 const loginButton = document.querySelector('.login-form .btn-primary');
 loginButton.addEventListener('click', async function () {
     const email = document.querySelector('.login-form input[type="email"]').value;
     const password = document.querySelector('.login-form input[type="password"]').value;
 
     try {
-        // Dapatkan CSRF cookie dulu (untuk Laravel Sanctum)
-        await fetch('http://localhost:8000/sanctum/csrf-cookie', {
+        await fetch(`${baseUrl}/sanctum/csrf-cookie`, {
             method: 'GET',
             credentials: 'include',
         });
-
-        // Kirim permintaan login
-        const response = await fetch('http://localhost:8000/api/auth/login', {
+        
+        const response = await fetch(`${baseUrl}/api/auth/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -130,13 +129,13 @@ registerButton.addEventListener('click', async function () {
 
     try {
         // Ambil CSRF token dari server
-        await fetch('http://localhost:8000/sanctum/csrf-cookie', {
+        await fetch(`${baseUrl}/sanctum/csrf-cookie`, {
             method: 'GET',
             credentials: 'include',
         });
 
         // Kirim data registrasi ke server
-        const response = await fetch('http://localhost:8000/api/auth/register', {
+        const response = await fetch(`${baseUrl}/api/auth/register`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
