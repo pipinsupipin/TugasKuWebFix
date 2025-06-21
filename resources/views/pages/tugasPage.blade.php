@@ -104,5 +104,5 @@
 @endsection
 
 @push('scripts')
-    <script type="module" src="{{ asset('js/tugasPage.js') }}"></script>
+    <script src="{{ asset('js/tugasPage.js') }}"></script>
 @endpush

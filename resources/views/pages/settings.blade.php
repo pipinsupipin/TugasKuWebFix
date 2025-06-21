@@ -254,5 +254,5 @@
 @endsection
 
 @push('scripts')
-    <script type="module" src="{{ asset('js/settings.js') }}"></script>
+    <script src="{{ asset('js/settings.js') }}"></script>
 @endpush

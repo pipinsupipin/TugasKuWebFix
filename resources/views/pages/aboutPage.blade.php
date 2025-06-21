@@ -165,7 +165,7 @@
       </div>
     </div>
   </div>
-  <script type="module" src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
   <script>
     lucide.createIcons();
   </script>

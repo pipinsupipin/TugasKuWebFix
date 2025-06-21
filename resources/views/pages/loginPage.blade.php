@@ -64,7 +64,6 @@
       </div>
     </div>
   </div>
-
-  <script type="module" src="{{ asset('js/login.js') }}"></script>
+  <script src="{{ asset('js/login.js') }}"></script>
 </body>
 </html>

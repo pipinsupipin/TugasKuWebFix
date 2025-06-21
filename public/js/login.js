@@ -60,7 +60,7 @@ function showAlert(message, type = 'error') {
 }
 
 // ========== LOGIN HANDLER ==========
-const baseUrl = import.meta.env.VITE_API_BASE_URL;
+const baseUrl = 'https://tugas-ku.cloud';
 const loginButton = document.querySelector('.login-form .btn-primary');
 loginButton.addEventListener('click', async function () {
     const email = document.querySelector('.login-form input[type="email"]').value;

@@ -40,5 +40,5 @@
 @endsection
 
 @push('scripts')
-    <script type="module" src="{{ asset('js/calendar.js') }}"></script>
+    <script src="{{ asset('js/calendar.js') }}"></script>
 @endpush

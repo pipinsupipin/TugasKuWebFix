@@ -16,3 +16,6 @@ indent_size = 2
 
 [docker-compose.yml]
 indent_size = 4
+
+'paths' => ['api/*', 'sanctum/csrf-cookie'],
+'allowed_origins' => ['*'], // atau ['https://malaka.ngodingbareng.my.id']

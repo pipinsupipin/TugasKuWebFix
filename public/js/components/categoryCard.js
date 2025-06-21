@@ -2,7 +2,7 @@ function initCategoryWidget() {
     document.addEventListener("DOMContentLoaded", function () {
         // ===================== Axios Setup =====================
         axios.defaults.withCredentials = true;
-        axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL;
+        axios.defaults.baseURL = 'https://tugas-ku.cloud';
 
         // ===================== MENAMPILKAN KATEGORI DAN TUGAS PER KATEGORI =====================
 

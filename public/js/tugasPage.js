@@ -1,13 +1,7 @@
-/**
- * File: public/js/tugasPage.js
- * TugasKu - Task Management JavaScript
- * Menangani operasi CRUD untuk halaman tugas dengan implementasi axios
- */
-
 document.addEventListener("DOMContentLoaded", function () {
     // ===================== Axios Setup =====================
     axios.defaults.withCredentials = true;
-    axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL;
+    axios.defaults.baseURL = 'https://tugas-ku.cloud';
 
     // ===================== DOM Elements =====================
     const elements = {
