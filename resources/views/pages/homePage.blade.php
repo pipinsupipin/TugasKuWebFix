@@ -169,7 +169,7 @@
 @endsection
 
 @push('scripts')
-    <script src="{{ asset('js/components/categoryCard.js') }}"></script>
-    <script src="{{ asset('js/homePage.js') }}"></script>
+    <script src="{{ secure_asset('js/components/categoryCard.js') }}"></script>
+    <script src="{{ secure_asset('js/homePage.js') }}"></script>
 @endpush
 
