@@ -10,6 +10,7 @@ function fetchAllTasks() {
     axios.get('/api/tugas', {
         headers: {
             'Authorization': `Bearer ${localStorage.getItem('auth_token')}`
+            
         }
     })
     .then(response => {

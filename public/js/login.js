@@ -60,8 +60,8 @@ function showAlert(message, type = 'error') {
 }
 
 // ========== LOGIN HANDLER ==========
-const baseUrl = 'https://tugas-ku.cloud';
-// const baseUrl = 'https://tugas-ku.cloud';
+const baseUrl = 'http://localhost:8000';
+// const baseUrl = 'http://localhost:8000';
 const loginButton = document.querySelector('.login-form .btn-primary');
 loginButton.addEventListener('click', async function () {
     const email = document.querySelector('.login-form input[type="email"]').value;
