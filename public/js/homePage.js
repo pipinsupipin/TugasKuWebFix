@@ -3,7 +3,7 @@
 // axios.defaults.baseURL = 'https://tugas-ku.cloud';
 
 // const baseUrl = 'https://tugas-ku.cloud';
-const baseUrl = "http://localhost:8000";
+const baseUrl = "https://tugas-ku.cloud";
 
 initCategoryWidget();
 
