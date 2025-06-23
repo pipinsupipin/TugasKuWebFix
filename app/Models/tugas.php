@@ -37,3 +37,5 @@ class Tugas extends Model
         return $this->belongsTo(KategoriTugas::class, 'kategori_id');
     }
 }
+
+// WOYYYY
