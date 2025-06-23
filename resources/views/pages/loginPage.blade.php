@@ -64,6 +64,6 @@
       </div>
     </div>
   </div>
-  <script src="{{ secure_asset('js/login.js') }}"></script>
+  <script src="{{ asset('/js/login.js') }}"></script>
 </body>
 </html>
