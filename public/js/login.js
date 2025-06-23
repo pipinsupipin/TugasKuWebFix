@@ -60,7 +60,7 @@ function showAlert(message, type = 'error') {
 }
 
 // ========== LOGIN HANDLER ==========
-const baseUrl = 'https://localhost:8000';
+const baseUrl = 'http://127.0.0.1:8000';
 // const baseUrl = 'http://localhost:8000';
 const loginButton = document.querySelector('.login-form .btn-primary');
 loginButton.addEventListener('click', async function () {
