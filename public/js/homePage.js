@@ -1,8 +1,8 @@
 // ===================== Axios Setup =====================
 // axios.defaults.withCredentials = true;
-// axios.defaults.baseURL = 'http://localhost:8000';
+// axios.defaults.baseURL = 'https://tugas-ku.cloud';
 
-const baseUrl = 'http://localhost:8000';
+const baseUrl = 'https://tugas-ku.cloud';
 // const baseUrl = 'http://127.0.0.1:8000';
 
 initCategoryWidget();
