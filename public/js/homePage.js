@@ -2,8 +2,8 @@
 // axios.defaults.withCredentials = true;
 // axios.defaults.baseURL = 'http://localhost:8000';
 
-// const baseUrl = 'http://localhost:8000';
-const baseUrl = 'http://127.0.0.1:8000';
+const baseUrl = 'http://localhost:8000';
+// const baseUrl = 'http://127.0.0.1:8000';
 
 initCategoryWidget();
 
