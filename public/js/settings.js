@@ -1,5 +1,6 @@
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL = 'https://tugas-ku.cloud';
+// axios.defaults.baseURL = 'https://tugas-ku.cloud';
+axios.defaults.baseURL = 'http://127.0.0.1:8000';
 
 // Fetch user data saat halaman dimuat
 function fetchUserData() {

@@ -22,7 +22,8 @@
 <script>
 // ===================== PROFILE INFO =====================
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL = 'https://tugas-ku.cloud';
+// axios.defaults.baseURL = 'https://tugas-ku.cloud';
+axios.defaults.baseURL = 'http://127.0.0.1:8000';
     
 const userNameElement = document.getElementById('user-name');
 const userEmailElement = document.getElementById('user-email');

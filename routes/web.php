@@ -52,7 +52,8 @@ use Illuminate\Http\Request;
 
 Route::get('/tugas-view', function () {
     $client = new \GuzzleHttp\Client();
-    $response = $client->request('GET', 'https://tugas-ku.cloud/api/tugas');
+    // $response = $client->request('GET', 'https://tugas-ku.cloud/api/tugas');
+    $response = $client->request('GET', 'http://127.0.0.1:8000/api/tugas');
 
     $data = json_decode($response->getBody(), true);
 

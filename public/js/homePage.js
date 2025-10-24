@@ -2,8 +2,8 @@
 // axios.defaults.withCredentials = true;
 // axios.defaults.baseURL = 'https://tugas-ku.cloud';
 
-const baseUrl = 'https://tugas-ku.cloud';
-// const baseUrl = 'http://127.0.0.1:8000';
+// const baseUrl = 'https://tugas-ku.cloud';
+const baseUrl = 'http://127.0.0.1:8000';
 
 initCategoryWidget();
 
